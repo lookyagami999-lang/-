@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+ <html lang="th">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>แจ้งปัญหา/ร้องเรียน — เทศบาลตำบลม่วงน้อย</title>
+     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+     <style>
+         :root {
+             --primary: #004B93;
+             --secondary: #F5A623;
+             --light: #F8FAFC;
+             --gray-200: #E2E8F0;
+             --gray-600: #64748B;
+             --gray-800: #1E293B;
+         }
+         * {
+             margin: 0;
+             padding: 0;
+             box-sizing: border-box;
+             font-family: "Noto Sans Thai", sans-serif;
+         }
+         body {
+             background: linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 100%);
+             min-height: 100vh;
+             padding: 0;
+         }
+         /* === HEADER === */
+         .top-bar {
+             background: linear-gradient(135deg, var(--primary) 0%, #003A72 100%);
+             color: white;
+             padding: 32px 16px;
+             text-align: center;
+         }
+         .top-bar h1 {
+             font-size: 22px;
+             font-weight: 700;
+             margin-bottom: 8px;
+         }
+         .top-bar p {
+             font-size: 15px;
+             opacity: 0.9;
+         }
+         /* === CONTAINER === */
+         .container {
+             max-width: 580px;
+             margin: 0 auto;
+             padding: 32px 16px;
+         }
+         /* === WARNING BOX === */
+         .warning-box {
+             background: #FFFBEB;
+             border: 1px solid #FDE68A;
+             border-radius: 10px;
+             padding: 16px 20px;
+             margin-bottom: 28px;
+             font-size: 14px;
+             color: #92400E;
+             display: flex;
+             align-items: flex-start;
+             gap: 12px;
+             line-height: 1.7;
+         }
+         /* === INFO BOX === */
+         .info-box {
+             background: #F0F9FF;
+             border: 1px solid #BAE6FD;
+             border-radius: 12px;
+             padding: 24px;
+             margin-bottom: 32px;
+         }
+         .info-box h3 {
+             font-size: 16px;
+             color: #075985;
+             margin-bottom: 14px;
+             display: flex;
+             align-items: center;
+             gap: 8px;
+         }
+         .info-box ul {
+             margin: 0 0 0 22px;
+         }
+         .info-box li {
+             font-size: 14px;
+             color: #0C4A6E;
+             margin-bottom: 8px;
+             line-height: 1.8;
+         }
+         /* === MAIN CARD === */
+         .main-card {
+             background: white;
+             border-radius: 16px;
+             padding: 40px 28px;
+             box-shadow: 0 4px 24px rgba(0,75,147,0.1);
+             text-align: center;
+             margin-bottom: 32px;
+         }
+         .main-card .icon {
+             font-size: 64px;
+             margin-bottom: 20px;
+         }
+         .main-card h2 {
+             font-size: 20px;
+             color: var(--gray-800);
+             margin-bottom: 12px;
+         }
+         .main-card p {
+             font-size: 15px;
+             color: var(--gray-600);
+             margin-bottom: 32px;
+             line-height: 1.7;
+         }
+         .btn-primary {
+             display: inline-block;
+             background: linear-gradient(135deg, var(--primary) 0%, #003A72 100%);
+             color: white;
+             font-size: 17px;
+             font-weight: 600;
+             text-decoration: none;
+             padding: 16px 40px;
+             border-radius: 10px;
+             transition: transform 0.2s, box-shadow 0.2s;
+             box-shadow: 0 4px 12px rgba(0,75,147,0.25);
+         }
+         .btn-primary:hover {
+             transform: translateY(-2px);
+             box-shadow: 0 6px 20px rgba(0,75,147,0.35);
+         }
+         /* === TIPS === */
+         .tips-box {
+             background: var(--light);
+             border-radius: 12px;
+             padding: 24px;
+             margin-bottom: 32px;
+         }
+         .tips-box h4 {
+             font-size: 15px;
+             color: var(--gray-800);
+             margin-bottom: 14px;
+         }
+         .tips-box p {
+             font-size: 14px;
+             color: var(--gray-600);
+             line-height: 1.8;
+             margin-bottom: 8px;
+         }
+         /* === CONTACT === */
+         .contact-box {
+             background: white;
+             border-radius: 12px;
+             padding: 24px;
+             border: 1px solid var(--gray-200);
+         }
+         .contact-box h3 {
+             font-size: 16px;
+             color: var(--gray-800);
+             margin-bottom: 16px;
+         }
+         .contact-box ul {
+             list-style: none;
+             padding: 0;
+         }
+         .contact-box li {
+             font-size: 14px;
+             color: var(--gray-800);
+             padding: 8px 0;
+             border-bottom: 1px solid var(--gray-200);
+         }
+         .contact-box li:last-child {
+             border-bottom: none;
+         }
+         /* === FOOTER === */
+         footer {
+             text-align: center;
+             padding: 32px 16px 40px;
+             font-size: 13px;
+             color: var(--gray-600);
+             line-height: 1.9;
+             border-top: 1px solid var(--gray-200);
+             margin-top: 20px;
+         }
+         footer .contact-info {
+             background: var(--light);
+             display: inline-block;
+             padding: 14px 24px;
+             border-radius: 8px;
+             margin-top: 16px;
+             font-size: 13px;
+             line-height: 1.8;
+         }
+         /* === RESPONSIVE === */
+         @media (max-width: 480px) {
+             .top-bar h1 { font-size: 19px; }
+             .main-card { padding: 30px 20px; }
+             .btn-primary { padding: 14px 32px; font-size: 16px; }
+         }
+     </style>
+ </head>
+ <body>
+ <!-- 🟦 HEADER -->
+ <div class="top-bar">
+     <h1>🏛️ เทศบาลตำบลม่วงน้อย</h1>
+     <p>ระบบรับแจ้งปัญหาและร้องเรียนออนไลน์</p>
+ </div>
+ <div class="container">
+     <!-- ⚠️ เตือนฉุกเฉิน -->
+     <div class="warning-box">
+         <span>⚠️</span>
+         <div>
+             <strong>กรณีเหตุฉุกเฉิน อันตราย หรือเหตุด่วนเหตุร้าย:</strong><br>
+             โทรแจ้งสายด่วน <strong>1669</strong> (กู้ชีพ) หรือ <strong>191</strong> (ตำรวจ) ทันที — นี่ไม่ใช่ระบบฉุกเฉินครับ
+         </div>
+     </div>
+     <!-- ℹ️ คำแนะนำก่อนใช้งาน -->
+     <div class="info-box">
+         <h3>📋 กรุณาทราบข้อมูลก่อนแจ้ง</h3>
+         <ul>
+             <li>กรอกข้อมูลให้ชัดเจนและครบถ้วน จะช่วยให้เจ้าหน้าที่ดำเนินการได้รวดเร็วและถูกต้อง</li>
+             <li>หลังส่งข้อมูลสำเร็จ ท่านจะเห็นข้อความยืนยันจากระบบ</li>
+             <li>ข้อมูลส่วนตัวทั้งหมดจะได้รับการปกป้องตาม <strong>พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล พ.ศ.2562</strong></li>
+             <li>เจ้าหน้าที่จะติดต่อกลับภายใน <strong>3 วันทำการ</strong> (จันทร์–ศุกร์ เวลา 08:30–16:30 น.)</li>
+         </ul>
+     </div>
+     <!-- 📋 ปุ่มเข้าฟอร์ม -->
+     <div class="main-card">
+         <div class="icon">📝</div>
+         <h2>แบบฟอร์มแจ้งปัญหา / ร้องเรียน</h2>
+         <p>กดปุ่มด้านล่างเพื่อเปิดแบบฟอร์ม<br>กรอกข้อมูลแล้วกดส่ง เจ้าหน้าที่จะรับทราบทันที</p>
+         
+         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfEM3SLOgJilDtAPOTjaVAVDzYI8ESgSegGFmjWN9aIX5GnuA/viewform" 
+            target="_blank" 
+            class="btn-primary">
+             ✅ เปิดแบบฟอร์มเพื่อแจ้งปัญหา
+         </a>
+     </div>
+     <!-- 💡 คำแนะนำเพิ่มเติม -->
+     <div class="tips-box">
+         <h4>💡 คำแนะนำเพื่อให้การดำเนินการรวดเร็วขึ้น</h4>
+         <p>📍 <strong>ระบุตำแหน่งให้ชัดเจน:</strong> บอกชื่อหมู่บ้าน ถนน หรือจุดสังเกตใกล้เคียง</p>
+         <p>🗺️ <strong>แชร์ตำแหน่งจากแผนที่:</strong> เปิด Google Maps → กดค้างที่จุดปัญหา → แชร์ → คัดลอกลิงก์ → วางในช่องที่อยู่</p>
+         <p>📷 <strong>แนบรูปภาพ:</strong> ถ้ามีรูปประกอบปัญหา จะช่วยให้เจ้าหน้าที่เข้าใจและดำเนินการได้เร็วขึ้น (ไม่จำเป็น)</p>
+         <p>📞 <strong>เบอร์ติดต่อ:</strong> กรอกเบอร์โทรให้ถูกต้อง เพื่อเจ้าหน้าที่จะได้ประสานงานกลับหาท่าน</p>
+     </div>
+     <!-- 📞 ติดต่อเรา -->
+     <div class="contact-box">
+         <h3>📞 ช่องทางติดต่อเพิ่มเติม</h3>
+         <ul>
+             <li><strong>🏢 ที่ทำการเทศบาลตำบลม่วงน้อย</strong><br>ตำบลม่วงน้อย อำเภอป่าซาง จังหวัดลำพูน 51120</li>
+             <li><strong>📞 โทรศัพท์:</strong> 0-5352-0659 (จันทร์–ศุกร์ 08:30–16:30 น.)</li>
+             <li><strong>📧 อีเมล:</strong> muengnoy.tambon@gmail.com</li>
+             <li><strong>📘 เพจเฟซบุ๊ก:</strong> เทศบาลตำบลม่วงน้อย อำเภอป่าซาง จังหวัดลำพูน</li>
+         </ul>
+     </div>
+ </div>
+ <!-- 📃 FOOTER -->
+ <footer>
+     <strong>🏛️ เทศบาลตำบลม่วงน้อย</strong><br>
+     ตำบลม่วงน้อย อำเภอป่าซาง จังหวัดลำพูน 51120
+     
+     <div class="contact-info">
+         🕐 เวลาทำการ: จันทร์–ศุกร์ 08:30–16:30 น. (เว้นวันหยุดราชการ)<br>
+         📞 โทรศัพท์: 0-5352-0659<br>
+         🔒 ข้อมูลของท่านได้รับการปกป้องตามนโยบายคุ้มครองข้อมูลส่วนบุคคล (PDPA)
+     </div>
+     <br>
+     © 2025 เทศบาลตำบลม่วงน้อย — ระบบพัฒนาเพื่อประชาชน
+ </footer>
+ </body>
+ </html>
